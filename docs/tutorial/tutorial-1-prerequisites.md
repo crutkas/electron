@@ -125,6 +125,36 @@ To check which version of Node.js is running in your app, you can access the glo
 
 :::
 
+### Optional Windows automation (source preview)
+
+The manual setup above remains the default. For review on a disposable Windows development
+VM, a personal-fork [Windows Developer Configuration preview][windows-preview] provides
+Node.js LTS with bundled npm and Git. This is unsigned source under review in
+[crutkas/WindowsDeveloperConfig-oem#2][windows-preview-pr], not an Electron-endorsed
+installer or a signed release.
+
+Review the guide, scripts, and package terms before running anything: the workload installs
+software, accepts package agreements, and installers may request elevation. Use the intended
+developer account with PowerShell, Git, WinGet, and WinGet Configuration available. Follow the
+guide to check out and review the fork's `crutkas-devconfig-fork-only-workloads` branch;
+from that checkout's root, run:
+
+```powershell
+.\src\Workloads\install-source.ps1 -Workload electron
+```
+
+VS Code is optional. To include it, run the individual Electron script instead:
+
+```powershell
+.\src\Workloads\electron\install.ps1 -IncludeEditor
+```
+
+This focused workload does not configure WSL or customize the OS. It does not globally
+install Electron or Forge, or install native-addon build tools by default; native modules
+may need additional tools specific to the module. Continue with
+[Building your First App][building your first app] or the Electron Forge path above to create
+your project and install Electron or Forge locally in it.
+
 <!-- Links -->
 
 [chromium]: https://www.chromium.org/
@@ -138,6 +168,8 @@ To check which version of Node.js is running in your app, you can access the glo
 [git guides]: https://github.com/git-guides/
 [github desktop]: https://desktop.github.com/
 [visual studio code]: https://code.visualstudio.com/
+[windows-preview]: https://github.com/crutkas/WindowsDeveloperConfig-oem/blob/crutkas-devconfig-fork-only-workloads/src/docs/windows-onboarding-preview.md
+[windows-preview-pr]: https://github.com/crutkas/WindowsDeveloperConfig-oem/pull/2
 
 <!-- Tutorial links -->
 
